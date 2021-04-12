@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maryam Rahdaran</title>
+<style>
+  body{
+    background-color:#f7fff7;
+    text-align:center;
+    font-size: 18px;
+  }
+  span{
+    background-color: darkblue;
+    height:40px;
+    width:120px;
+    display: inline-block;
+    border-radius:6px;
+    
+  }
+  a{
+    color:white;
+    z-index: 1;     
+   padding: 1.5em;     
+   margin: -1.5em; 
+  }
+
+  p{
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+  <h1>CSE 135 Homework 1</h1>
+  <h3>Maryam Rahdaran</h3>
+  <p>I am computer scince major. This is my last quarter at UCSD.</p>
+  <p>I had CSE 134B in winter quarter. This a <span ><a href="https://cse134b-hw5-705bc.web.app/">sample site</a></span> from that class.</p>
+  <script>
+    const b = document.querySelector('h1');
+    function blink(){
+      b.style.opacity = b.style.opacity ==1 ? 0 : 1;
+      setTimeout(blink, 1000);
+    }
+
+    blink();
+  </script>
+</body>
+</html>

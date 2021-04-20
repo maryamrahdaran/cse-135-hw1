@@ -11,9 +11,7 @@ time = datetime.datetime.now()
 hostname = socket.gethostname()
 ip_address = socket.gethostbyname(hostname)
 
-j = [
-    "message": "hello"
-]
+j = {"message": "hello"}
 
 #print(" Date & Time: {}".format(time))
 #print("Your current IP address is: {}<br/>".format(os.environ['REMOTE_ADDR']))

@@ -12,6 +12,6 @@ hostname = socket.gethostname()
 ip_address = socket.gethostbyname(hostname)
 
 
-print(" Date & Time: {}<br/>".format(time))
+print(" Date & Time: {}".format(time))
 #print("Your current IP address is: {}<br/>".format(os.environ['REMOTE_ADDR']))
 # print("</body></html>")

@@ -12,4 +12,5 @@ data = {"message": "hello"}
 
 #print(" Date & Time: {}".format(time))
 #print("Your current IP address is: {}<br/>".format(os.environ['REMOTE_ADDR']))
-print(json.JSONEncoder().encode(data))
+# print(json.JSONEncoder().encode(data))
+print(data)

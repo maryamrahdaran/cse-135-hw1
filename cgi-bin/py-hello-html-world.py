@@ -4,8 +4,8 @@ import os
 import datetime
 import socket
 
-print("Cache-Control: no-cache\n")
-print("Content-type: text/html\n\n")
+print("Cache-Control: no-cache")
+print("Content-type: text/html\r\n\r\n")
 print("<html><head><title>Hello CGI World</title></head>\
 <body><h1 align=center>Hello HTML World</h1>\
 <hr/>\n")

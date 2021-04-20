@@ -4,9 +4,10 @@
 
 #print("Cache-Control: no-cache")
 print("Content-type: text/html\r\n\r\n")
-print("<html><head><title>Hello CGI World</title></head>\
-<body><h1 align=center>Hello HTML World</h1>\
-<hr/>\n")
+print("<html><head>")
+print("<title>Hello CGI World</title>")
+print("</head>")
+print("<body><h1 align=center>Hello HTML World</h1><hr/>\n")
 
 #current_time = datetime.datetime.now
 #hostname = socket.gethostname()

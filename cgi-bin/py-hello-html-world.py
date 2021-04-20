@@ -15,6 +15,7 @@
 #print("Hello World<br/>\n")
 #print("Your current IP address is: %s<br/>".format(ip_address))
 # print("</body></html>")
+import cgi
 
 print("Cache-Control: no-cache")
 print("Content-type: text/html\r\n\r\n")

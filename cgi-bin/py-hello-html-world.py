@@ -16,5 +16,4 @@ ip_address = ip_address = socket.gethostbyname(hostname)
 print("Hello World<br/>\n")
 print("This program was generated at: {}\n<br/>".format(current_time))
 print("Your current IP address is: %s<br/>".format(ip_address))
-
 print("</body></html>")

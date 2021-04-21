@@ -1,19 +1,15 @@
 <?PHP
   header('Cache-Control: no-cache');
 ?>
+
 <html>
 <head>
-<title>Hello, Php!</title>
+  <title>Environment Variables</title>
 </head>
-<body>
-
-<p>This page was generated with the Php programming langauge</p>
+<body><h1 align="center">Environment Variables</h1>
+<hr>
 <?PHP
-
-
 $request = $_REQUEST
-
-
 echo "<p>Current Time: " .$request. "</p>";
 ?>
 

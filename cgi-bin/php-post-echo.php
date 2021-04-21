@@ -9,8 +9,9 @@
 <body><h1 align="center">POST Request Echo</h1>
 <b>Message Body:</b></br></br>
 <?PHP
-$fh = fopen('php://stdin','r');
-$data = fgets($fh,1000)
+//$fh = fopen('php://stdin','r');
+//$data = fgets($fh,1000);
+$data = file_get_contents('php://input');
 echo "$data <br/>";
 $qlist = explode('&', $data);
 

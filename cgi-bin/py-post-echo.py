@@ -13,11 +13,11 @@ print("<b>Message Body:</b></br>")
 data = sys.stdin.read()
 
 print("{}<br/>".format(data))
-#qlist = query.split('&')
-# for q in qlist:
-#eql = q.split('=')
-#print("{} = ".format(eql[0]))
-# if(len(eql) > 1):
-# print("{}<br/>".format(eql[1]))
+dlist = data.split('&')
+for d in dlist:
+    eql = d.split('=')
+    print("{} = ".format(eql[0]))
+    if(len(eql) > 1):
+        print("{}<br/>".format(eql[1]))
 
 print("</body></html>")

@@ -2,15 +2,14 @@
 import cgi
 import os
 import datetime
-import simplejson as json
+import json
 
 print("Cache-Control: no-cache")
 print("Content-type: application/json\r\n\r\n")
 
-
-data = {"message": "hello"}
-
-#print(" Date & Time: {}".format(time))
-#print("Your current IP address is: {}<br/>".format(os.environ['REMOTE_ADDR']))
-# print(json.JSONEncoder().encode(data))
-print(data)
+time = datetime.datetime.now()
+ip = os.environ['REMOTE_ADDR']
+data = {"message": "hello python", "Date & Time": time.strftime(
+    "%A, %m/%d/%Y, %H:%M:%S"), "IP address": ip}
+j = json.dumps(data)
+print(j)

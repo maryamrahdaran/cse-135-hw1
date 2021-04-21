@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import cgi
 import os
+import sys
 
 print("Cache-Control: no-cache")
 print("Content-type: text/html\r\n\r\n")

@@ -9,11 +9,15 @@
 <body><h1 align="center">Environment Variables</h1>
 <hr>
 <?PHP
-$request = $_REQUEST;
-echo "<p>Current Time: " .$request. "</p>";
+$envs = $_SERVER;
+foreach($envs as $key=>$value){
+        echo "<b>" .$key. " :</b>" .$value. "</br>";
+}
 ?>
 
 
 
 </body>
 </html>
+
+

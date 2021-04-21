@@ -14,8 +14,8 @@ $envs = $_SERVER;
 $data = file_get_contents('php://input');
 
 echo "<b>Protocol: </b>" .$envs['SERVER_PROTOCOL']. "<br/>";
-echo "<b>Protocol: </b>" .$envs['REQUEST_METHOD']. "<br/>";
-echo "<b>Protocol: </b>" .$envs['QUERY_STRING']. "<br/>";
+echo "<b>Method: </b>" .$envs['REQUEST_METHOD']. "<br/>";
+echo "<b>Query String: </b>" .$envs['QUERY_STRING']. "<br/>";
 echo "<b>Message Body: </b>" .$data. "<br/>";
 ?>
 

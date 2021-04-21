@@ -9,7 +9,7 @@
 <body><h1 align="center">Environment Variables</h1>
 <hr>
 <?PHP
-$request = $_REQUEST
+$request = $_REQUEST;
 echo "<p>Current Time: " .$request. "</p>";
 ?>
 

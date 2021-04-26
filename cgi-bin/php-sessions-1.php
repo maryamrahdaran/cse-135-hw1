@@ -1,5 +1,3 @@
-
-
 <?PHP
 $name = file_get_contents('php://input');
 

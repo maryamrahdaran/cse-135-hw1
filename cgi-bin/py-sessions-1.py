@@ -21,11 +21,27 @@ print("<head><title>Python Sessions</title></head>\n")
 print("<body>")
 print("<h1>Python Sessions Page 1</h1>")
 print("<table>")
-if os.environ.get("HTTP_COOKIE") is not None:
+
+if len(name) > 0:
+    print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(name))
+if os.environ.get("HTTP_COOKIE") is not None & & os.environ.get("HTTP_COOKIE") == "destroyed":
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(os.environ.get("HTTP_COOKIE")))
 else:
     print("<tr><td>Cookie:</td><td>None</td></tr>\n")
 
 print("</table>")
+
+# Links for other pages
+print("<br />")
+print("<a href=\"/cgi-bin/c-sessions-2.cgi\">Session Page 2</a>")
+print("<br />")
+print("<a href=\"/c-cgiform.html\">C CGI Form</a>")
+print("<br /><br />")
+
+# Destroy Cookie button
+print("<form action=\"/cgi-bin/c-destroy-session.cgi\" method=\"get\">")
+print("<button type=\"submit\">Destroy Session</button>")
+print("</form>")
+
 print("</body>")
 print("</html>")

@@ -18,7 +18,7 @@ setcookie($data)
 
 <?PHP
 if(is_null($_SERVER["HTTP_COOKIE"]) and $_SERVER["HTTP_COOKIE"] != "username=destroyed"){
-    echo "<tr><td>Cookie:</td><td>" .$_SERVER['HTTP_COOKIE']. "</td></tr>\n");}
+    echo "<tr><td>Cookie:</td><td>" .$_SERVER['HTTP_COOKIE']. "</td></tr>\n";}
 else if( strlen(name) > 0){
     echo "<tr><td>Cookie:</td><td>" .$name. "</td></tr>\n";
 }

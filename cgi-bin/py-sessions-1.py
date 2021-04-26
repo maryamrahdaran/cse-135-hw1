@@ -24,7 +24,7 @@ print("<table>")
 
 if len(name) > 0:
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(name))
-if os.environ.get("HTTP_COOKIE") is not None & & os.environ.get("HTTP_COOKIE") == "destroyed":
+elif os.environ.get("HTTP_COOKIE") is not None and os.environ.get("HTTP_COOKIE") == "destroyed":
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(os.environ.get("HTTP_COOKIE")))
 else:
     print("<tr><td>Cookie:</td><td>None</td></tr>\n")

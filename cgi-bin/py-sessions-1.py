@@ -1,20 +1,21 @@
 #!/usr/bin/python3
 import cgi
 import os
-import datetime
-import socket
+import sys
 
 print("Cache-Control: no-cache")
+
+if len(name) > 0:
+    print("Set-Cookie: {}".format(name))
+
 print("Content-type: text/html\r\n\r\n")
 
 # Get Name from Environment
 name = sys.stdin.read()
 
 # Set the cookie using a header
-if len(name) > 0:
-    print("Set-Cookie: {}\n\n".format(name))
 
-    # Body - HTML
+# Body - HTML
 print("<html>")
 print("<head><title>Python Sessions</title></head>\n")
 print("<body>")

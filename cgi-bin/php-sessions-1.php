@@ -15,6 +15,7 @@ echo 'is_null($_SERVER["HTTP_COOKIE"])';
 if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])){
     setcookie($name);
     echo "<h1>errorrrrrrrrr</h1>";
+    echo strlen($name);
     echo is_null($_SERVER["HTTP_COOKIE"]);
 }
 

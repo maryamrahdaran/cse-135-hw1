@@ -12,7 +12,7 @@ if (count($qlist) > 1 and isset($_COOKIE[$cookie_name]) and $_COOKIE[$cookie_val
     
 if (count($qlist) > 1 and !isset($_COOKIE[$cookie_name])){
     $cookie_value = $qlist[1];
-    setcookie($cookie_name, ,$cookie_value);
+    setcookie($cookie_name,cookie_value);
 }
 
 

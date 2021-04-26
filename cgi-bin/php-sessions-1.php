@@ -4,6 +4,14 @@
 
 <?PHP
 $name = file_get_contents('php://input');
+
+
+if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])==false and $_SERVER["HTTP_COOKIE"] == "username=destroyed"){
+    setcookie($name)}
+    
+if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])){
+    setcookie($name)}
+
 setcookie($data)
 ?>
 
@@ -17,7 +25,7 @@ setcookie($data)
 <table>
 
 <?PHP
-if(is_null($_SERVER["HTTP_COOKIE"]) and $_SERVER["HTTP_COOKIE"] != "username=destroyed"){
+if(is_null($_SERVER["HTTP_COOKIE"])==false and $_SERVER["HTTP_COOKIE"] != "username=destroyed"){
     echo "<tr><td>Cookie:</td><td>" .$_SERVER['HTTP_COOKIE']. "</td></tr>\n";}
 else if( strlen(name) > 0){
     echo "<tr><td>Cookie:</td><td>" .$name. "</td></tr>\n";

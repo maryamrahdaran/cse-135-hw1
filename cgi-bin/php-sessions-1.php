@@ -12,7 +12,6 @@ if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])==false and $_SERVER["
 if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])){
     setcookie($name)}
 
-setcookie($data)
 ?>
 
 <html>

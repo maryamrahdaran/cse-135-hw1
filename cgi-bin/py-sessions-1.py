@@ -8,8 +8,9 @@ print("Cache-Control: no-cache")
 # Get Name from Environment
 name = sys.stdin.read()
 
-# if len(name) > 0:
-#print("Set-Cookie: {}".format(name))
+
+if len(name) > 0 and os.environ.get("HTTP_COOKIE") is None:
+    print("Set-Cookie: {}".format(name))
 
 print("Content-type: text/html\r\n\r\n")
 
@@ -27,7 +28,6 @@ print("<table>")
 if os.environ.get("HTTP_COOKIE") is not None and os.environ.get("HTTP_COOKIE") != "destroyed":
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(os.environ.get("HTTP_COOKIE")))
 elif len(name) > 0:
-    print("Set-Cookie: {}".format(name))
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(name))
 else:
     print("<tr><td>Cookie:</td><td>None</td></tr>\n")

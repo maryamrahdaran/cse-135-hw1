@@ -1,6 +1,6 @@
 <?PHP
 $name = file_get_contents('php://input');
-$cookie_name='username'
+$cookie_name='username';
 
 if (strlen($name) > 0 and isset($_COOKIE[$cookie_name]) and $_SERVER["HTTP_COOKIE"] == "username=destroyed"){
     setcookie($cookie_name,$name);

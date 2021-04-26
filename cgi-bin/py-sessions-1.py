@@ -8,9 +8,10 @@ print("Cache-Control: no-cache")
 # Get Name from Environment
 name = sys.stdin.read()
 
-
+if len(name) > 0 and os.environ.get("HTTP_COOKIE") is not None and os.environ.get("HTTP_COOKIE") == "username=destroyed":
+    print("Set-Cookie:{}".format(name))
 if len(name) > 0 and os.environ.get("HTTP_COOKIE") is None:
-    print("Set-Cookie: {}".format(name))
+    print("Set-Cookie:{}".format(name))
 
 print("Content-type: text/html\r\n\r\n")
 
@@ -25,7 +26,7 @@ print("<h1>Python Sessions Page 1</h1>")
 print("<table>")
 
 
-if os.environ.get("HTTP_COOKIE") is not None and os.environ.get("HTTP_COOKIE") != "destroyed":
+if os.environ.get("HTTP_COOKIE") is not None and os.environ.get("HTTP_COOKIE") != "username=destroyed":
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(os.environ.get("HTTP_COOKIE")))
 elif len(name) > 0:
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(name))
@@ -42,7 +43,8 @@ print("<a href=\"/py-form.html\">Python Form</a>")
 print("<br /><br />")
 
 # Destroy Cookie button
-print("<form action=\"/cgi-bin/py-destroy-session.py\" method=\"get\">")
+print("<form action=\"/cgi-bin/py-destroy-session.py\" method=\"post\">")
+print('<input type="hidden" name="username" value="destroyed" autocomplete="off">')
 print("<button type=\"submit\">Destroy Session</button>")
 print("</form>")
 

@@ -4,9 +4,9 @@ import os
 import sys
 
 print("Cache-Control: no-cache")
-print("Set-Cookie: destroyed")
+name = sys.stdin.read()
+print("Set-Cookie: {}".format(name))
 print("Content-type: text/html\r\n\r\n")
-
 
 print("<html>")
 print("<head><title>Python Session Destroyed</title></head>")

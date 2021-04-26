@@ -5,13 +5,13 @@ import sys
 
 print("Cache-Control: no-cache")
 
+# Get Name from Environment
+name = sys.stdin.read()
 if len(name) > 0:
     print("Set-Cookie: {}".format(name))
 
 print("Content-type: text/html\r\n\r\n")
 
-# Get Name from Environment
-name = sys.stdin.read()
 
 # Set the cookie using a header
 

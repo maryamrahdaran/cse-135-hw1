@@ -23,7 +23,7 @@ print("<h1>Python Sessions Page 1</h1>")
 print("<table>")
 
 
-if os.environ.get("HTTP_COOKIE") is not None and os.environ.get("HTTP_COOKIE") == "destroyed":
+if os.environ.get("HTTP_COOKIE") is not None and os.environ.get("HTTP_COOKIE") != "destroyed":
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(os.environ.get("HTTP_COOKIE")))
 elif len(name) > 0:
     print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(name))

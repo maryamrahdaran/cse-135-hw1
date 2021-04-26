@@ -7,10 +7,14 @@ $name = file_get_contents('php://input');
 
 
 if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])==false and $_SERVER["HTTP_COOKIE"] == "username=destroyed"){
-    setcookie($name);}
+    setcookie($name);
+echo "<h1>errot</h1>";
+}
     
 if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])){
-    setcookie($name);}
+    setcookie($name);
+    echo "<h1>errot</h1>";
+}
 
 ?>
 

@@ -1,24 +1,22 @@
-<?PHP
-  header('Cache-Control: no-cache');
-?>
+
 
 <?PHP
 $name = file_get_contents('php://input');
-echo $name;
 
-if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])==false and $_SERVER["HTTP_COOKIE"] == "username=destroyed"){
+if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])==0 and $_SERVER["HTTP_COOKIE"] == "username=destroyed"){
     setcookie($name);
 echo "<h1>error</h1>";
 echo 'is_null($_SERVER["HTTP_COOKIE"])';
 }
     
-if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])){
+if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])==1){
     setcookie($name);
     echo "<h1>errorrrrrrrrr</h1>";
     echo strlen($name);
     echo is_null($_SERVER["HTTP_COOKIE"]);
 }
 
+  header('Cache-Control: no-cache');
 
 ?>
 

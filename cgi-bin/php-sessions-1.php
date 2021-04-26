@@ -1,12 +1,13 @@
 <?PHP
 $name = file_get_contents('php://input');
+$cookie_name='username'
 
-if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])==0 and $_SERVER["HTTP_COOKIE"] == "username=destroyed"){
-    setcookie($name);
+if (strlen($name) > 0 and isset($_COOKIE[$cookie_name]) and $_SERVER["HTTP_COOKIE"] == "username=destroyed"){
+    setcookie($cookie_name,$name);
 }
     
-if (strlen($name) > 0 and is_null($_SERVER["HTTP_COOKIE"])==1){
-    setcookie($name);
+if (strlen($name) > 0 and !isset($_COOKIE[$cookie_name])){
+    setcookie($cookie_name, $name);
 }
 
   header('Cache-Control: no-cache');

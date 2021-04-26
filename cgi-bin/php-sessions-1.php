@@ -1,5 +1,7 @@
 <?PHP
 $name = file_get_contents('php://input');
+echo $name;
+$qlist = explode('&', $data);
 $cookie_name='username';
 
 if (strlen($name) > 0 and isset($_COOKIE[$cookie_name]) and $_SERVER["HTTP_COOKIE"] == "username=destroyed"){
@@ -9,6 +11,7 @@ if (strlen($name) > 0 and isset($_COOKIE[$cookie_name]) and $_SERVER["HTTP_COOKI
 if (strlen($name) > 0 and !isset($_COOKIE[$cookie_name])){
     setcookie($cookie_name, $name);
 }
+
 
   header('Cache-Control: no-cache');
 

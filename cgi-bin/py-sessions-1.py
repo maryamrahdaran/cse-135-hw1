@@ -22,8 +22,7 @@ print("<body>")
 print("<h1>Python Sessions Page 1</h1>")
 print("<table>")
 if os.environ.get("HTTP_COOKIE") != null:
-    print("<tr><td>Cookie:</td><td>%s</td></tr>\n",
-          os.environ.get("HTTP_COOKIE"))
+    print("<tr><td>Cookie:</td><td>{}</td></tr>\n".format(os.environ.get("HTTP_COOKIE")))
 else:
     print("<tr><td>Cookie:</td><td>None</td></tr>\n")
 

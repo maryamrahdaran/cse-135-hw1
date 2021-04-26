@@ -31,9 +31,9 @@ if (count($qlist) > 1 and !isset($_COOKIE[$cookie_name])){
 
 <?PHP
 if(is_null($_SERVER["HTTP_COOKIE"])==false and $_COOKIE[$cookie_value]=='destroyed'){
-    echo "<tr><td>Cookie:</td><td>" .$_SERVER['HTTP_COOKIE']. "</td></tr>\n";}
-else if( strlen(name) > 0){
-    echo "<tr><td>Cookie:</td><td>" .$name. "</td></tr>\n";
+    echo "<tr><td>Cookie:</td><td>" .$_COOKIE[$cookie_value]. "</td></tr>\n";}
+else if( count(qlist) > 1){
+    echo "<tr><td>Cookie:</td><td>" .$qlist[1]. "</td></tr>\n";
 }
 else{
     echo("<tr><td>Cookie:</td><td>None</td></tr>\n");

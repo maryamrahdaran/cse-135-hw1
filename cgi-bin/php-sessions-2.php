@@ -15,6 +15,7 @@ if(isset($_COOKIE['username']) and $_COOKIE['username']!='destroyed'){
   echo "<tr><td>Cookie:</td><td>" .$_COOKIE['username']. "</td></tr>\n";}
 else{
   echo("<tr><td>Cookie:</td><td>None</td></tr>\n");}
+  echo isset($_COOKIE['username']) ;
 ?>
 </table>
 

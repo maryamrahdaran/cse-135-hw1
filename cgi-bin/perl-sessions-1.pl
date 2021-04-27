@@ -1,70 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#!/usr/bin/perl
+use CGI;
 
-int main(int argc, char **argv, char **envp)
-{
-  // Headers
-  printf("Cache-Control: no-cache\n");
+# Create a new Perl Session
+use CGI::Session;
+$session = new CGI::Session("driver:File", undef, {Directory=>"/tmp"});
 
-  // Get Name from Environment
-  char username[1000];
-  fgets(username, 1000, stdin);
+# Create CGI Object
+$cgi = CGI->new;
 
-  // Check to see if a proper name was sent
-  char *name = "";
-  if (username[0] == 'u')
-  {
-    name = username + 9;
-  }
+# Create a new Cookie from the Session ID
+$cookie = $cgi->cookie(CGISESSID => $session->id);
+print $cgi->header( -cookie=>$cookie );
 
-  // Set the cookie using a header, add extra \n to end headers
-  if (strlen(name) > 0)
-  {
-    printf("Content-type: text/html\n");
-    printf("Set-Cookie: %s\n\n", name);
-  }
-  else
-  {
-    printf("Content-type: text/html\n\n");
-  }
+#Store Data in that Perl Session
+my $name = $session->param('username') || $cgi->param('username');
+$session->param("username", $name);
 
-  // Body - HTML
-  printf("<html>");
-  printf("<head><title>C Sessions</title></head>\n");
-  printf("<body>");
-  printf("<h1>C Sessions Page 1</h1>");
-  printf("<table>");
+print "<html>";
+print "<head>";
+print "<title>Perl Sessions</title>";
+print "</head>";
+print "<body>";
 
-  // First check for new Cookie, then Check for old Cookie
-  if (strlen(name) > 0)
-  {
-    printf("<tr><td>Cookie:</td><td>%s</td></tr>\n", name);
-  }
-  else if (getenv("HTTP_COOKIE") != NULL && strcmp(getenv("HTTP_COOKIE"), "destroyed"))
-  {
-    printf("<tr><td>Cookie:</td><td>%s</td></tr>\n", getenv("HTTP_COOKIE"));
-  }
-  else
-  {
-    printf("<tr><td>Cookie:</td><td>None</td></tr>\n");
-  }
+print "<h1>Perl Sessions Page 1</h1>";
 
-  printf("</table>");
+print "<h3>Maryam was here</h3>";
 
-  // Links for other pages
-  printf("<br />");
-  printf("<a href=\"/cgi-bin/c-sessions-2.cgi\">Session Page 2</a>");
-  printf("<br />");
-  printf("<a href=\"/c-cgiform.html\">C CGI Form</a>");
-  printf("<br /><br />");
-
-  // Destroy Cookie button
-  printf("<form action=\"/cgi-bin/c-destroy-session.cgi\" method=\"get\">");
-  printf("<button type=\"submit\">Destroy Session</button>");
-  printf("</form>");
-
-  printf("</body>");
-  printf("</html>");
-  return 0;
+if ($name){
+	print("<p><b>Name:</b> $name");
+}else{
+	print "<p><b>Name:</b> You do not have a name set</p>";
 }
+print "<br/><br/>";
+print "<a href=\"/cgi-bin/perl-sessions-2.pl\">Session Page 2</a><br/>";
+print "<a href=\"/perl-cgiform.html\">Perl CGI Form</a><br />";
+print "<form style=\"margin-top:30px\" action=\"/cgi-bin/perl-destroy-session.pl\" method=\"get\">";
+print "<button type=\"submit\">Destroy Session</button>";
+print "</form>";
+
+print "</body>";
+print "</html>";

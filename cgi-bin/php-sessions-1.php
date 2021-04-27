@@ -32,7 +32,7 @@ if (count($qlist) > 1 and !isset($_COOKIE[$cookie_name])){
 
 <?PHP
 if(isset($_COOKIE[$cookie_name]) and $_COOKIE[$cookie_value]!='destroyed'){
-    echo "<tr><td>Cookie:</td><td>" .$_COOKIE[$cookie_value]. "</td></tr>\n";}
+    echo "<tr><td>Cookie:</td><td>" .$_COOKIE[$cookie_name]. "</td></tr>\n";}
 else if( count($qlist) > 1){
     echo "<tr><td>Cookie:</td><td>" .$qlist[1]. "</td></tr>\n";
 }

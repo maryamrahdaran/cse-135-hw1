@@ -10,9 +10,9 @@ header('Cache-Control: no-cache');
 <h1>Python Session Destroyed</h1>
 
 
-<a href=\"/cgi-bin/py-sessions-1.py\">Back to Page 1</a>
+<a href=\"/cgi-bin/php-sessions-1.php\">Back to Page 1</a>
 <br />")
-<a href=\"/cgi-bin/py-sessions-2.py\">Back to Page 2</a>
+<a href=\"/cgi-bin/php-sessions-2.php\">Back to Page 2</a>
 <br />")
 <a href=\"/py-form.html\">python Form</a>
 

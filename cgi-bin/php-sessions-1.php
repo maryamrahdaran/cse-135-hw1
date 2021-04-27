@@ -6,7 +6,7 @@ $cookie_name='username';
 $cookie_value='';
 echo count($qlist);
 
-if (count($qlist) > 1 and isset($_COOKIE[$cookie_name]) and $_COOKIE[$cookie_value]=='destroyed'){
+if (count($qlist) > 1 and isset($_COOKIE[$cookie_name]) and $_COOKIE[$cookie_name]=='destroyed'){
     $cookie_value = $qlist[1];
     setcookie($cookie_name,$cookie_value);
 }
@@ -31,7 +31,7 @@ if (count($qlist) > 1 and !isset($_COOKIE[$cookie_name])){
 <table>
 
 <?PHP
-if(isset($_COOKIE[$cookie_name]) and $_COOKIE[$cookie_value]!='destroyed'){
+if(isset($_COOKIE[$cookie_name]) and $_COOKIE[$cookie_name]!='destroyed'){
     echo "<tr><td>Cookie:</td><td>" .$_COOKIE[$cookie_name]. "</td></tr>\n";}
 else if( count($qlist) > 1){
     echo "<tr><td>Cookie:</td><td>" .$qlist[1]. "</td></tr>\n";

@@ -53,6 +53,7 @@ int main(int argc, char **argv, char **envp)
   printf("</table>");
 
   // Links for other pages
+  printf("<h3> Maryam was here!</h3>");
   printf("<br />");
   printf("<a href=\"/cgi-bin/c-sessions-2.cgi\">Session Page 2</a>");
   printf("<br />");

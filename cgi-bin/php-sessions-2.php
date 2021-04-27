@@ -14,7 +14,7 @@
 if(isset($_COOKIE[$cookie_name]) and $_COOKIE[$cookie_name]!='destroyed'){
   echo "<tr><td>Cookie:</td><td>" .$_COOKIE[$cookie_name]. "</td></tr>\n";}
 else{
-  echo("<tr><td>Cookie:</td><td>None</td></tr>\n");
+  echo("<tr><td>Cookie:</td><td>None</td></tr>\n");}
 ?>
 </table>
 

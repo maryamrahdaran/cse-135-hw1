@@ -4,7 +4,7 @@ $name = file_get_contents('php://input');
 $qlist = explode('=', $name);
 $cookie_name='username';
 $cookie_value='';
-echo $count($qlist);
+echo count($qlist);
 
 if (count($qlist) > 1 and isset($_COOKIE[$cookie_name]) and $_COOKIE[$cookie_value]=='destroyed'){
     $cookie_value = $qlist[1];

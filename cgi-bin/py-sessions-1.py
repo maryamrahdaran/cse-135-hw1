@@ -39,7 +39,7 @@ print("</table>")
 print("<br />")
 print("<a href=\"/cgi-bin/py-sessions-2.py\">Session Page 2</a>")
 print("<br />")
-print("<a href=\"/py-form.html\">Python Form</a>")
+print("<a href=\"/py-state-demo.html\">Python Form</a>")
 print("<br /><br />")
 
 # Destroy Cookie button

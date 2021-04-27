@@ -45,7 +45,7 @@ else{
 <br />
 <a href="/cgi-bin/php-sessions-2.php">Session Page 2</a>
 <br />
-<a href="/php-form.html">Python Form</a>")
+<a href="/php-state-demo.html">Python Form</a>")
 <br /><br />
 
 

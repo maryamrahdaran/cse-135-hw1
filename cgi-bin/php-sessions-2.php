@@ -20,9 +20,9 @@ else{
 </table>
 
 <br />
-<a href="/cgi-bin/php-sessions-1.php">Session Page 2</a>
+<a href="/cgi-bin/php-sessions-1.php">Session Page 1</a>
 <br />
-<a href="/php-form.html">Python Form</a>")
+<a href="/php-state-demo.html">Python Form</a>")
 <br /><br />
 </body>
 </html>

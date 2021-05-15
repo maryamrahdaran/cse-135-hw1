@@ -1,0 +1,273 @@
+/* Global styles
+------------------------------------*/
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-seri;
+}
+
+h1,
+h2 {
+  font-family: "Caveat", cursive;
+  padding-top: 30px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 100px;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 45px;
+}
+
+footer {
+  text-align: center;
+}
+
+.content-wrap {
+  width: 85%;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.divider section {
+  border-bottom: 1px dashed #343434;
+  padding: 25px 0;
+}
+
+.divider section:last-of-type {
+  border-bottom: none;
+}
+
+/* Profile
+------------------------------------*/
+header {
+  background-image: url(../images/mango-matter-1Ms3Zsb1v7g-unsplash-3.jpg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+nav ul {
+  padding: 20px 20px;
+  width: 110px;
+  background-color: rgba(52, 52, 52, 1);
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+nav li a {
+  display: block;
+  padding: 16px 24px;
+  color: #f7fff7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 1s ease-out;
+  transition: height 2s;
+}
+
+nav li a:hover {
+  background-color: #acbb5c;
+  color: #343434;
+  height: 70px;
+}
+
+header h1,
+h2 {
+  animation-name: example;
+  animation-duration: 4s;
+}
+@keyframes example {
+  from {
+    color: red;
+  }
+  to {
+    color: green;
+  }
+}
+
+/*
+header p {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+*/
+/* Work
+------------------------------------*/
+.works {
+  background: #f7fff7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  padding-right: 50px;
+  width: 270px;
+  height: 225px;
+}
+
+/* Projects
+------------------------------------*/
+.projects {
+  background: #a1c6d7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-details p {
+  font-style: italic;
+}
+
+.project-summery p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.project-summery p:first-of-type {
+  margin-top: 15px;
+}
+/* Education
+------------------------------------*/
+.education {
+  background-image: url(../images/sharon-mccutcheon-unsplash.jpg);
+  background-size: cover;
+  padding-bottom: 100px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.education section {
+  padding-top: 30px;
+}
+
+.education p {
+  font-style: italic;
+}
+
+/* Contact Info
+------------------------------------*/
+footer {
+  background: #343434;
+  color: #f7fff7;
+  padding-bottom: 30px;
+}
+
+.contact-list {
+  list-style-type: none;
+  margin: 0;
+}
+
+.contact-list a {
+  padding: 20px;
+  color: #f7fff7;
+  text-decoration: none;
+}
+
+.photo-cite a {
+  color: yellow;
+}
+
+.photo-cite p {
+  margin-top: 0;
+}
+
+span {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-color: #f7fff7;
+  -ms-transform: rotate(20deg); /* IE 9 */
+  transform: rotate(20deg);
+  margin-left: 30px;
+  color: #343434;
+  font-weight: bold;
+}
+
+/* Responsive
+------------------------------------*/
+@media screen and (min-width: 650px) {
+  .project-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    row-gap: 20px;
+  }
+
+  .work-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .contact-list {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1110px) {
+  nav ul {
+    display: block;
+    width: auto;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    position: fixed;
+    transition: width 2s;
+  }
+
+  nav li a {
+    color: #f7fff7;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(52, 52, 52, 1);
+  }
+
+  nav li a:hover {
+    width: 123px;
+  }
+}
+
+@media screen and (max-width: 649px) {
+}

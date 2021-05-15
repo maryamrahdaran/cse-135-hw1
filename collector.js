@@ -10,6 +10,12 @@ const width = window.screen.width
 const page = location.href;
 const innerWidth = window.innerWidth;
 const innerHeight = window.innerHeight;
+let img = document.getElementById('test')
+
+let image = 0;
+if(img.width > 100){
+  image = 1;
+}
 
 let currSeconds = 0;
 let timenow = Date.now();
@@ -30,6 +36,7 @@ var data = {
   cookie_enabled : cookie_enabled,
   script : script,
   css : css,
+  image : image,
   connection : connection,
   height : height,
   width : width,

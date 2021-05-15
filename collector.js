@@ -71,8 +71,8 @@ let mousebuttonCount = 0;
 
 //activity2
 
-//let idletime = [];
-//let idleduration = []
+let idletime = [];
+let idleduration = []
 let idletimeCount = 0;
 let idledurationCount = 0
 let enter_time = 0;
@@ -257,41 +257,7 @@ window.onmousedown = resetTimer;
 window.onclick = resetTimer;
 document.addEventListener('mouseup', logMouseButton);
 
-let mouseButton = [];
 
-function logMouseButton(e) {
-  if (typeof e === 'object') {
-    switch (e.button) {
-      case 0:
-      mouseButton.push('L');
-      break;
-      case 1:
-      mouseButton.push( 'M');
-      break;
-      case 2:
-      mouseButton.push('R');
-      break;
-      default:
-      mouseButton.push ("U");
-    }
-  }
-}
-
-
-let scrollM = []
-window.addEventListener("scroll", (event) => {
-  let s = this.scrollY;
-  scrollM.push(s)
-});
-
-let keyPress = []
-document.onkeypress = function(evt) {
-  resetTimer();
-  evt = evt || window.event;
-  var charCode = evt.keyCode || evt.which;
-  var charStr = String.fromCharCode(charCode);
-  keyPress.push(charStr);
-};
 
 function resetTimer() {
   console.log("reset timet");

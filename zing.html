@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
+  <title>Charts</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div id="chart-div"></div>
+  <br>
+  <br>
+  <br>
+  <div id="chart-div2"></div>
+  <br>
+  <br>
+  <br>
+  <div id="chart-div3"></div>
+</body>
+</html>
+
+<script>
+  const fetchParams = {
+  method: "GET",
+  mode: "cors",
+  cache: "default"
+};
+
+const url = "https://marah.xyz/api/activity2";
+    let cookie = [];
+    let idle_duration1 = [];
+    let enter_time1 = [];
+    let left_time1 = [];
+    let idle_duration2 = [];
+    let enter_time2 = [];
+    let left_time2 = [];
+    let idle_duration3 = [];
+    let enter_time3 = [];
+    let left_time3 = [];
+    let page1 = "https://marah.xyz/maryam.html";
+    let page2 = "https://marah.xyz/"
+    let page3 = "https://marah.xyz/members.html" 
+    let index = 0;
+    let time_spent1 = [];
+    let time_spent2 = [];
+    let time_spent13 = [];
+
+
+fetch(url, fetchParams)
+  .then(res => {
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    return res.json();
+  })
+  .then(data => {
+
+    data.forEach(d => {
+      let time = d.left_time;
+      
+      if( cookie.includes(d.cookie)){
+        index = cookie.indexOf(d.cookie)}
+      else{
+        cookie.push(d.cookie)
+        index = cookie.length - 1;
+      }
+        if(d.page == page1){
+          if(d.left_time != '' && d.left_time !=0){
+            if(left_time1[index] != undefined){
+              if(left_time1[index] < time)
+                left_time1[index] = time;
+              }
+              else{
+                left_time1[index] = time;
+              }
+          }
+          if(d.enter_time != '' && d.enter_time !=0){
+            if(enter_time1[index] != undefined){
+              if(enter_time1 < d.enter_time){
+                enter_time1[index] = d.enter_time;
+            }
+          }
+            else{
+              enter_time1[index] = d.enter_time;
+            }
+          
+          }
+          time_spent1[index] =left_time1 - enter_time1[index]
+
+          let idled = d.idle_duration
+          idled = idled.replace('[', '')
+          idled = idled.replace(']', '')
+          idled = idled.split(',')
+          
+          let duration = 0
+          if(idled.length > 0 ){
+            idled.forEach(idl=>{
+              duration = duration + parseInt(idl);
+            })
+            if(idle_duration1[index] == undefined){
+              idle_duration1[index] = duration
+            }
+            
+            else{
+              idle_duration1[index] = idle_duration1[index] + duration
+            }
+          
+        }
+      }
+        else if(d.page == page2){
+         
+          if(d.left_time != '' && d.left_time !=0){
+            if(left_time2[index] != undefined){
+              if(left_time2[index] < d.left_time){
+              left_time2[index] = d.left_time;
+            }
+          }
+          else{
+            left_time2[index] = d.left_time;
+          }
+        }
+          if(d.enter_time != '' && d.enter_time !=0){
+            if(enter_time2[index] != undefined){
+            if(enter_time2 < d.enter_time){
+              enter_time2[index] = d.enter_time;
+            }
+          }
+            else{
+              enter_time2[index] = d.enter_time;
+            }
+            
+          }
+
+          let idled = d.idle_duration
+          idled = idled.replace('[', '')
+          idled = idled.replace(']', '')
+          idled = idled.split(',')
+          
+          let duration = 0
+          if(idled.length > 0 ){
+            idled.forEach(idl=>{
+              duration = duration + parseInt(idl);
+            })
+            if(idle_duration2[index] == undefined){
+              idle_duration2[index] = duration
+            }
+            else{
+              idle_duration2[index] = idle_duration2[index] + duration
+            }
+          }
+          
+        }
+        else if(d.page == page3){
+         
+          if(d.left_time != '' && d.left_time !=0){
+            if(left_time3[index] != undefined){
+              if(left_time3[index] < d.left_time){
+              left_time3[index] = d.left_time;
+            }
+          }
+            else{
+              left_time3[index] = d.left_time;
+            }
+            
+          }
+          if(d.enter_time != '' && d.enter_time !=0){
+            if(enter_time3[index] != undefined){
+              if(enter_time3 < d.enter_time){
+              enter_time3[index] = d.enter_time;
+            }
+          }
+            else{
+              enter_time3[index] = d.enter_time;
+            }
+            
+          }
+
+          let idled = d.idle_duration
+          idled = idled.replace('[', '')
+          idled = idled.replace(']', '')
+          idled = idled.split(',')
+          
+          let duration = 0
+          if(idled.length > 0 ){
+            idled.forEach(idl=>{
+              duration = duration + parseInt(idl);
+            })
+            if(idle_duration3[index] == undefined){
+              idle_duration3[index] = duration
+            }
+            else{
+              idle_duration3[index] = idle_duration3[index] + duration
+            }
+          }
+          
+        }
+      
+
+      })
+
+
+// var p1 = idle_duration1.filter(el => {
+//   return el != undefined;
+// });
+// var p2 = idle_duration2.filter(el => {
+//   return el != undefined;
+// });
+// var p3 = idle_duration3.filter(el => {
+//   return el != undefined;
+// });
+
+for(let i=0; i<idle_duration1.length;i++){
+  if(idle_duration1[i]==undefined){
+    idle_duration1[i]=null;
+  }
+}
+
+for(let i=0; i<idle_duration2.length;i++){
+  if(idle_duration2[i]==undefined){
+    idle_duration2[i]=null;
+  }
+}
+
+
+for(let i=0; i<idle_duration3.length;i++){
+  if(idle_duration3[i]==undefined){
+    idle_duration3[i]=null;
+  }
+}
+
+
+var myConfig1 = {
+  "type": "line",
+      "utc": true,
+      "title": {
+        "text": "total idle time for 3 pages per user",
+        "font-size": "24px",
+        "adjust-layout": true
+      },
+      "plotarea": {
+        "margin": "dynamic 45 60 dynamic",
+      },
+      "legend": {
+        "layout": "float",
+        "background-color": "none",
+        "border-width": 0,
+        "shadow": 0,
+        "align": "center",
+        "adjust-layout": true,
+        "toggle-action": "remove",
+        "item": {
+          "padding": 7,
+          "marginRight": 17,
+          "cursor": "hand"
+        }
+      },
+      "scale-x": {
+        "min-value": 0,
+        "shadow": 0,
+ 
+        "label": {
+          "text": "users"
+        },
+        "minor-ticks": 0
+      },
+      "scale-y": {
+        "line-color": "#f6f7f8",
+        "shadow": 0,
+        "guide": {
+          "line-style": "dashed"
+        },
+        "label": {
+          "text": "Idle time",
+        },
+        "minor-ticks": 0,
+        "thousands-separator": ","
+      },
+      "crosshair-x": {
+        "line-color": "#efefef",
+        "plot-label": {
+          "border-radius": "5px",
+          "border-width": "1px",
+          "border-color": "#f6f7f8",
+          "padding": "10px",
+          "font-weight": "bold"
+        },
+        "scale-label": {
+          "font-color": "#000",
+          "background-color": "#f6f7f8",
+          "border-radius": "5px"
+        }
+      },
+      "tooltip": {
+        "visible": false
+      },
+      "plot": {
+        "highlight": true,
+        "tooltip-text": "%t views: %v<br>%k",
+        "shadow": 0,
+        "line-width": "2px",
+        "marker": {
+          "type": "circle",
+          "size": 3
+        },
+        "highlight-state": {
+          "line-width": 3
+        },
+        "animation": {
+          "effect": 1,
+          "sequence": 2,
+          "speed": 100,
+        }
+      },
+  type: 'line',
+  series: [
+  {
+    
+    values: idle_duration1
+    ,
+              "text": "https://marah.xyz/maryam.html",
+              "line-color": "#009872",
+              "legend-item": {
+                "background-color": "#009872",
+                "borderRadius": 5,
+                "font-color": "white"
+              },
+              "legend-marker": {
+                "visible": false
+              },
+              "marker": {
+                "background-color": "#009872",
+                "border-width": 1,
+                "shadow": 0,
+                "border-color": "#69f2d0"
+              },
+              "highlight-marker": {
+                "size": 6,
+                "background-color": "#009872",
+              }
+  },
+  {
+    values: idle_duration2,
+    "text": "https://marah.xyz/",
+              "line-color": "#da534d",
+              "legend-item": {
+                "background-color": "#da534d",
+                "borderRadius": 5,
+                "font-color": "white"
+              },
+              "legend-marker": {
+                "visible": false
+              },
+              "marker": {
+                "background-color": "#da534d",
+                "border-width": 1,
+                "shadow": 0,
+                "border-color": "#faa39f"
+              },
+              "highlight-marker": {
+                "size": 6,
+                "background-color": "#da534d",
+              }
+  },
+  {
+    values: idle_duration3,
+              "text": "https://marah.xyz/members.html",
+              "line-color": "#007790",
+              "legend-item": {
+                "background-color": "#007790",
+                "borderRadius": 5,
+                "font-color": "white"
+              },
+              "legend-marker": {
+                "visible": false
+              },
+              "marker": {
+                "background-color": "#007790",
+                "border-width": 1,
+                "shadow": 0,
+                "border-color": "#69dbf1"
+              },
+              "highlight-marker": {
+                "size": 6,
+                "background-color": "#007790",
+              }
+  }
+  ]
+};
+      zingchart.render({
+        id: 'chart-div',
+        data: myConfig1
+      });
+
+  })
+  .catch(err => {
+    console.log("Error Getting Data From Star Wars API");
+  });
+
+
+
+
+
+  
+let count1 = [0, 0];
+    let count2 = [0, 0];
+    let load1 = [0, 0];
+    let load2 = [0, 0];
+    let average1 = [0, 0]
+    let average2 = [0, 0]
+    const url2 ='https://marah.xyz/api/performance'
+fetch(url2, fetchParams)
+  .then(res => {
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    return res.json();
+  })
+  .then(data => {
+
+    data.forEach(d => {
+      //console.log(d)
+      if(d.page == page3){
+        if(d.weekday == 'Fri'){
+          load1 [0] = load1[0] + d.load_time;
+          count1[0] = count1[0] + 1;
+        }
+        else if(d.weekday =='Sat'){
+          load1 [1] = load1[1] + d.load_time
+          count1[1] = count1[0] + 1;
+        }
+      }
+      else if(d.page == page2){
+        if(d.weekday == 'Fri'){
+          load2 [0] = load2[0] + d.load_time;
+          count2[0] = count2[0] + 1;
+        }
+        else if(d.weekday == 'Sat'){
+          load2 [1] = load2[1] + d.load_time
+          count2[1] = count2[0] + 1;
+        }
+      }
+    });
+
+for(let i=0; i< count1.length; i++){
+  if(count1[i]!= 0){
+    average1[i] = load1[i] / count1[i]}
+  if(count2[i]!= 0){
+    average2[i] = load2[i] / count2[i]}
+}
+
+
+var myConfig2 = {
+  "graphset": [{
+            "type": "bar",
+            "background-color": "white",
+            "title": {
+              "text": "average load time for 2 pages for Friday and Saturday",
+              "font-color": "#7E7E7E",
+              "backgroundColor": "none",
+              "font-size": "22px",
+              "alpha": 1,
+              "adjust-layout": true,
+            },
+            "plotarea": {
+              "margin": "dynamic"
+            },
+            "legend": {
+              "layout": "x3",
+              "overflow": "page",
+              "alpha": 0.05,
+              "shadow": false,
+              "align": "center",
+              "adjust-layout": true,
+              "marker": {
+                "type": "circle",
+                "border-color": "none",
+                "size": "10px"
+              },
+              "border-width": 0,
+              "maxItems": 3,
+              "toggle-action": "hide",
+              "pageOn": {
+                "backgroundColor": "#000",
+                "size": "10px",
+                "alpha": 0.65
+              },
+              "pageOff": {
+                "backgroundColor": "#7E7E7E",
+                "size": "10px",
+                "alpha": 0.65
+              },
+              "pageStatus": {
+                "color": "black"
+              }
+            },
+            "plot": {
+              "bars-space-left": 0.15,
+              "bars-space-right": 0.15,
+              "animation": {
+                "effect": "ANIMATION_SLIDE_BOTTOM",
+                "sequence": 0,
+                "speed": 800,
+                "delay": 800
+              }
+            },
+            "scale-y": {
+              "line-color": "#7E7E7E",
+              "item": {
+                "font-color": "#7e7e7e"
+              },
+
+              "guide": {
+                "visible": true
+              },
+              "label": {
+                "text": "average load time",
+                "font-family": "arial",
+                "bold": true,
+                "font-size": "14px",
+                "font-color": "#7E7E7E",
+              },
+            },
+  
+  type: 'bar',
+  scaleX: {
+        labels: ['Fri', 'Sat']
+      },
+
+
+
+
+  series: [
+  {
+    values: average1,
+    text: "https://marah.xyz/members.html"
+    
+  },
+  {
+    values: average2,
+
+
+   text: "https://marah.xyz/members.html",
+  }
+  ]
+}]
+        };
+
+      zingchart.render({
+        id: 'chart-div2',
+        data: myConfig2
+      });
+
+
+  })
+  .catch(err => {
+    console.log("Error Getting Data From performance");
+  });
+
+
+
+
+
+let windows = [0];
+let macintosh = [0];
+let linux = [0];
+let total = 0;
+let other = [0]
+  const url3 ='https://marah.xyz/api/static'
+fetch(url3, fetchParams)
+  .then(res => {
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    return res.json();
+  })
+  .then(data => {
+    
+    data.forEach(d => {
+ console.log(d.userAgent.indexOf('Windows'))
+      if(d.userAgent.indexOf('Windows') != -1){
+        console.log("here")
+        windows[0] = windows[0] + 1;
+      }
+
+      else if(d.userAgent.indexOf('Macintosh') != -1){
+        macintosh[0] = macintosh[0] + 1;
+      }
+
+      else if(d.userAgent.indexOf('Linux') != -1){
+        linux[0] = linux[0] + 1;
+      }
+
+      total = total+1;
+    });
+    macintosh[0] = 100 * macintosh[0] / total;
+    windows[0] = 100 * windows[0] / total 
+    linux[0] = 100 * linux[0] / total
+    other[0] = 100 - macintosh[0] - windows[0] - linux[0]
+
+
+
+
+var myConfig3 = {
+  type: "pie",
+      plot: {
+        borderColor: "#2B313B",
+        borderWidth: 5,
+        // slice: 90,
+        valueBox: {
+          placement: 'out',
+          text: '%t\n%npv%',
+          fontFamily: "Open Sans"
+        },
+        tooltip: {
+          fontSize: '18',
+          fontFamily: "Open Sans",
+          padding: "5 10",
+          text: "%npv%"
+        },
+        animation: {
+          effect: 2,
+          method: 5,
+          speed: 900,
+          sequence: 1,
+          delay: 3000
+        }
+      },
+      source: {
+        text: 'gs.statcounter.com',
+        fontColor: "#8e99a9",
+        fontFamily: "Open Sans"
+      },
+      title: {
+        fontColor: "#8e99a9",
+        text: 'Platforms',
+        align: "center",
+        "font-size": "24px",
+        "adjust-layout": true
+      },
+
+      plotarea: {
+        margin: "20 0 0 0"
+      },
+  type: 'pie',
+  series: [
+  {
+    values: linux,
+          text: "Linux",
+          backgroundColor: '#50ADF5',
+        },
+        {
+          values: windows,
+          text: "Windows",
+          backgroundColor: '#FF7965',
+        },
+        {
+          values: macintosh,
+          text: 'Macintosh',
+          backgroundColor: '#FFCB45',
+        },
+        {
+          text: 'Other',
+          values: other,
+          backgroundColor: '#6FB07F'
+        }
+  ]
+};
+      zingchart.render({
+        id: 'chart-div3',
+        data: myConfig3
+      });
+
+
+  })
+  .catch(err => {
+    console.log("Error Getting Data From static");
+  });
+  
+
+</script>

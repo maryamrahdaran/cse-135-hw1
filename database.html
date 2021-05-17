@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+  <title>ZingGrid</title>
+</head>
+<body>
+  <zing-grid>
+
+  </zing-grid>
+</body>
+<script>
+
+const zgRef = document.querySelector('zing-grid');
+    fetch('https://marah.xyz/api/static', {
+      method: "GET",
+      headers: {"Content-type": "application/json",
+            "Authorization": "Basic" + btoa('grader' + ":" + "cse135") }
+    })
+      .then(res => res.json())
+      .then(data => zgRef.setData(data))
+      .catch(err => console.error('--- Error In Fetch Occurred ---', err));
+
+</script>
+
+</html>

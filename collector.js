@@ -42,7 +42,7 @@ var data = {
   width : width,
   innerWidth : innerWidth,
   innerHeight : innerHeight
-  
+
 }
 
 
@@ -52,10 +52,6 @@ body: JSON.stringify(data),
 headers: {"Content-type": "application/json",
 "Authorization": "Basic" + btoa('grader' + ":" + "cse135") }
 })
-
-///////////////////////
-
-
 
 //activity1
 let arrrayX = []
@@ -95,10 +91,10 @@ let weekday = days[d.getDay()]
 window.addEventListener('beforeunload', function (e) {
   //      e.preventDefault();
   //       e.returnValue = '';
-  
+
   left_time = Date.now();
-  
-  
+
+
   var a2 = {
     idle_time: JSON.stringify(idletime),
     idle_duration: JSON.stringify(idleduration),
@@ -108,11 +104,10 @@ window.addEventListener('beforeunload', function (e) {
     cookie: cookie,
     cookie_enabled : cookie_enabled,
   }
-  
-  
+
   navigator.sendBeacon("https://marah.xyz/api/activity2",JSON.stringify(a2))
   //navigator.sendBeacon("https://marah.xyz/api/activity1",JSON.stringify({test:'test'}))
-  
+
 });
 
 
@@ -123,7 +118,7 @@ window.addEventListener('load', function(){
   var intervalId = window.setInterval(function(){
     currSeconds++;
     if ( load_end_arr[load_end_arr.length - 1] != load_end_arr[load_end_arr.length - 2] && pf != undefined  ) {
-      
+
       var per = {
         start_load : pf[0].loadEventStart,
         end_load : pf[0].loadEventEnd,
@@ -134,7 +129,7 @@ window.addEventListener('load', function(){
         page : page,
         weekday : weekday
       }
-      
+
       fetch('https://marah.xyz/api/performance', {
       method: "POST",
       body: JSON.stringify(per),
@@ -142,11 +137,12 @@ window.addEventListener('load', function(){
       "Authorization": "Basic" + btoa('grader' + ":" + "cse135") }
     })
   }
-  
+
   if(load_end_arr[load_end_arr.length - 1] != load_end_arr[load_end_arr.length - 2] ){
     console.log(load_end_arr)
     load_end_arr.push(pf[0].loadEventEnd)
   }
+
   // activity1
   mousemoveCount = arrrayX.length;
   keypressCount= keyPress.length;
@@ -158,7 +154,7 @@ window.addEventListener('load', function(){
     let removedkeypress = keyPress.splice(0, keypressCount)
     let removedmousebutton = mouseButton.splice(0, mousebuttonCount)
     let removedscroll = scrollM.splice(0, scrollCount)
-    
+
     var act1 = {
       mouse_x: JSON.stringify(removedX),
       mouse_y: JSON.stringify(removedY),
@@ -168,10 +164,10 @@ window.addEventListener('load', function(){
       page : location.href,
       cookie: cookie,
       cookie_enabled : cookie_enabled,
-      
+
     }
-    
-    
+
+
     fetch('https://marah.xyz/api/activity1', {
     method: "POST",
     body: JSON.stringify(act1),
@@ -187,9 +183,9 @@ window.addEventListener('load', function(){
         mouseButton.concat(removedmousebutton)}
       })
     }
-    
+
   }, 1000);
-  
+
 });
 
 
@@ -251,8 +247,6 @@ document.onkeypress = function(evt) {
   keyPress.push(charStr);
 };
 
-
-
 window.onmousedown = resetTimer;
 window.onclick = resetTimer;
 document.addEventListener('mouseup', logMouseButton);
@@ -274,7 +268,7 @@ function resetTimer() {
       cookie: cookie,
       cookie_enabled : cookie_enabled,
     }
-    
+
     fetch('https://marah.xyz/api/activity2', {
     method: "POST",
     body: JSON.stringify(act2),
@@ -289,3 +283,4 @@ timenow = Date.now();
 }
 
 console.log("success");
+
